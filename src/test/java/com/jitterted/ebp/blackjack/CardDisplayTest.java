@@ -15,7 +15,7 @@ class CardDisplayTest {
     Card tenCard = new Card(DUMMY_SUIT, Rank.TEN);
 
     // characterize ("capture") existing behavior - and treat as correct
-    assertThat(tenCard.display())
+    assertThat(ConsoleCard.display(tenCard))
         .isEqualTo("\u001B[30m┌─────────┐\u001B[1B\u001B[11D│10       │\u001B[1B\u001B[11D│         │\u001B[1B\u001B[11D│    ♣    │\u001B[1B\u001B[11D│         │\u001B[1B\u001B[11D│       10│\u001B[1B\u001B[11D└─────────┘");
   }
 
@@ -23,7 +23,7 @@ class CardDisplayTest {
   public void displayNonTenAsString() throws Exception {
     Card nonTenCard = new Card(DUMMY_SUIT, Rank.QUEEN);
 
-    assertThat(nonTenCard.display())
+    assertThat(ConsoleCard.display(nonTenCard))
         .isEqualTo("\u001B[30m┌─────────┐\u001B[1B\u001B[11D│Q        │\u001B[1B\u001B[11D│         │\u001B[1B\u001B[11D│    ♣    │\u001B[1B\u001B[11D│         │\u001B[1B\u001B[11D│        Q│\u001B[1B\u001B[11D└─────────┘");
   }
 
@@ -37,9 +37,9 @@ class CardDisplayTest {
     String ansiRedString = ansi().fgRed().toString();
 
     // then we expect a red color ansi sequence
-    assertThat(heartsCard.display())
+    assertThat(ConsoleCard.display(heartsCard))
         .contains(ansiRedString);
-    assertThat(diamondsCard.display())
+    assertThat(ConsoleCard.display(diamondsCard))
         .contains(ansiRedString);
   }
 
