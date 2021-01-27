@@ -1,5 +1,8 @@
-package com.jitterted.ebp.blackjack;
+package com.jitterted.ebp.blackjack.adapter.in.console;
 
+import com.jitterted.ebp.blackjack.domain.Game;
+
+// beginning of our Adapter for the Console
 public class ConsoleGame {
 
   private final Game game;
@@ -38,6 +41,7 @@ public class ConsoleGame {
     }
   }
 
+  // dispatch to COMMAND on the DOMAIN
   public void handle(String command) {
     if (command.toLowerCase().startsWith("h")) {
       game.playerHits();
