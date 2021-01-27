@@ -19,6 +19,7 @@ public class Game {
   public void initialDeal() {
     dealRoundOfCards();
     dealRoundOfCards();
+    playerDone = playerHand.isBlackjack();
   }
 
   private void dealRoundOfCards() {
@@ -30,6 +31,8 @@ public class Game {
   public String determineOutcome() {
     if (playerHand.isBusted()) {
       return GameOutcome.PLAYER_BUSTS.display();
+    } else if (playerHand.isBlackjack()) {
+      return GameOutcome.PLAYER_WIN_BLACKJACK.display();
     } else if (dealerHand.isBusted()) {
       return "Dealer went BUST, Player wins! Yay for you!! 💵";
     } else if (playerHand.beats(dealerHand)) {
