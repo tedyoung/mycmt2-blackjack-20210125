@@ -18,7 +18,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo("You beat the Dealer! 💵");
+        .isEqualTo(GameOutcome.PLAYER_WINS.display());
   }
   
   @Test
@@ -33,7 +33,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo("You Busted, so you lose.  💸");
+        .isEqualTo(GameOutcome.PLAYER_BUSTS.display());
   }
 
 }

@@ -29,11 +29,11 @@ public class Game {
 
   public String determineOutcome() {
     if (playerHand.isBusted()) {
-      return "You Busted, so you lose.  💸";
+      return GameOutcome.PLAYER_BUSTS.display();
     } else if (dealerHand.isBusted()) {
       return "Dealer went BUST, Player wins! Yay for you!! 💵";
     } else if (playerHand.beats(dealerHand)) {
-      return "You beat the Dealer! 💵";
+      return GameOutcome.PLAYER_WINS.display();
     } else if (playerHand.pushes(dealerHand)) {
       return "Push: The house wins, you Lose. 💸";
     } else {
