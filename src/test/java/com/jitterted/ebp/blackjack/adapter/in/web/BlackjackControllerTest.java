@@ -61,4 +61,37 @@ class BlackjackControllerTest {
         .hasSize(3);
   }
 
+  @Test
+  public void playerHitsAndGoesBustThenRedirectToGameDone() throws Exception {
+    Deck stubDeck = new StubDeck(Rank.TEN, Rank.TWO,
+                                 Rank.EIGHT, Rank.FIVE,
+                                 Rank.FIVE);
+    Game game = new Game(stubDeck);
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    String viewName = blackjackController.hitCommand();
+
+    assertThat(viewName)
+        .isEqualTo("redirect:/done");
+  }
+
+  @Test
+  public void donePageShowsFinalGameViewWithOutcome() throws Exception {
+    Game game = new Game(new Deck());
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    Model model = new ConcurrentModel();
+    blackjackController.doneView(model);
+
+    assertThat(model.containsAttribute("gameView"))
+        .isTrue();
+
+    String outcome = (String) model.getAttribute("outcome");
+
+    assertThat(outcome)
+        .isNotBlank();
+  }
+
 }
