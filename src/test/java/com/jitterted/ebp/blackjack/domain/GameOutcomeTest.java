@@ -13,7 +13,6 @@ class GameOutcomeTest {
 
     game.initialDeal();
     game.playerStands();
-    game.dealerTurn();
 
     assertThat(game.isPlayerDone())
         .isTrue();
@@ -28,7 +27,6 @@ class GameOutcomeTest {
 
     game.initialDeal();
     game.playerHits();
-    game.dealerTurn();
 
     assertThat(game.isPlayerDone())
         .isTrue();
@@ -56,7 +54,6 @@ class GameOutcomeTest {
 
     game.initialDeal();
     game.playerStands();
-    game.dealerTurn();
 
     assertThat(game.isPlayerDone())
         .isTrue();
@@ -71,7 +68,6 @@ class GameOutcomeTest {
 
     game.initialDeal();
     game.playerStands();
-    game.dealerTurn();
 
     assertThat(game.isPlayerDone())
         .isTrue();

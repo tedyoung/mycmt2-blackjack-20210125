@@ -94,4 +94,16 @@ class BlackjackControllerTest {
         .isNotBlank();
   }
 
+  @Test
+  public void standResultsInGamePlayerIsDone() throws Exception {
+    Game game = new Game();
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    blackjackController.standCommand();
+
+    assertThat(game.isPlayerDone())
+        .isTrue();
+  }
+
 }
