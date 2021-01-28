@@ -1,0 +1,16 @@
+package com.jitterted.ebp.blackjack;
+
+import com.jitterted.ebp.blackjack.adapter.in.console.ConsoleGame;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BlackjackGameApplication {
+
+  public static void main(String[] args) {
+//    SpringApplication.run(BlackjackGameApplication.class, args);
+
+    // Run the ConsoleAdapter-based game
+    ConsoleGame.main(args);
+  }
+
+}
