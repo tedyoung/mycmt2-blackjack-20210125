@@ -18,7 +18,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo(GameOutcome.PLAYER_WINS.display());
+        .isEqualTo(GameOutcome.PLAYER_WINS);
   }
   
   @Test
@@ -33,7 +33,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo(GameOutcome.PLAYER_BUSTS.display());
+        .isEqualTo(GameOutcome.PLAYER_BUSTS);
   }
 
   @Test
@@ -44,7 +44,7 @@ class GameOutcomeTest {
     game.initialDeal();
 
     assertThat(game.determineOutcome())
-        .isEqualTo(GameOutcome.PLAYER_WIN_BLACKJACK.display());
+        .isEqualTo(GameOutcome.PLAYER_WIN_BLACKJACK);
     assertThat(game.isPlayerDone())
         .isTrue();
   }
@@ -61,7 +61,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo(GameOutcome.PLAYER_PUSHES.display());
+        .isEqualTo(GameOutcome.PLAYER_PUSHES);
   }
 
   @Test
@@ -76,7 +76,7 @@ class GameOutcomeTest {
     assertThat(game.isPlayerDone())
         .isTrue();
     assertThat(game.determineOutcome())
-        .isEqualTo(GameOutcome.PLAYER_LOSES.display());
+        .isEqualTo(GameOutcome.PLAYER_LOSES);
   }
 
 }

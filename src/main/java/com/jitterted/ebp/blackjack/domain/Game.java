@@ -28,19 +28,19 @@ public class Game {
     dealerHand.drawFrom(deck);
   }
 
-  public String determineOutcome() {
+  public GameOutcome determineOutcome() {
     if (playerHand.isBusted()) {
-      return GameOutcome.PLAYER_BUSTS.display();
+      return GameOutcome.PLAYER_BUSTS;
     } else if (playerHand.isBlackjack()) {
-      return GameOutcome.PLAYER_WIN_BLACKJACK.display();
+      return GameOutcome.PLAYER_WIN_BLACKJACK;
     } else if (dealerHand.isBusted()) {
-      return GameOutcome.DEALER_BUSTS.display();
+      return GameOutcome.DEALER_BUSTS;
     } else if (playerHand.beats(dealerHand)) {
-      return GameOutcome.PLAYER_WINS.display();
+      return GameOutcome.PLAYER_WINS;
     } else if (playerHand.pushes(dealerHand)) {
-      return GameOutcome.PLAYER_PUSHES.display();
+      return GameOutcome.PLAYER_PUSHES;
     } else {
-      return GameOutcome.PLAYER_LOSES.display();
+      return GameOutcome.PLAYER_LOSES;
     }
   }
 
