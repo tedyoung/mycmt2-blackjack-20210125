@@ -34,13 +34,13 @@ public class Game {
     } else if (playerHand.isBlackjack()) {
       return GameOutcome.PLAYER_WIN_BLACKJACK.display();
     } else if (dealerHand.isBusted()) {
-      return "Dealer went BUST, Player wins! Yay for you!! 💵";
+      return GameOutcome.DEALER_BUSTS.display();
     } else if (playerHand.beats(dealerHand)) {
       return GameOutcome.PLAYER_WINS.display();
     } else if (playerHand.pushes(dealerHand)) {
-      return "Push: The house wins, you Lose. 💸";
+      return GameOutcome.PLAYER_PUSHES.display();
     } else {
-      return "You lost to the Dealer. 💸";
+      return GameOutcome.PLAYER_LOSES.display();
     }
   }
 

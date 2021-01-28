@@ -49,4 +49,34 @@ class GameOutcomeTest {
         .isTrue();
   }
 
+  @Test
+  public void playerHandSameValueAsDealerThenGameIsPush() throws Exception {
+    Deck playerHandValueSameAsDealer = new StubDeck(Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING);
+    Game game = new Game(playerHandValueSameAsDealer);
+
+    game.initialDeal();
+    game.playerStands();
+    game.dealerTurn();
+
+    assertThat(game.isPlayerDone())
+        .isTrue();
+    assertThat(game.determineOutcome())
+        .isEqualTo(GameOutcome.PLAYER_PUSHES.display());
+  }
+
+  @Test
+  public void playerHandValueLessThanDealerThenPlayerLoses() throws Exception {
+    Deck playerHandValueSameAsDealer = new StubDeck(Rank.TEN, Rank.JACK, Rank.SIX, Rank.EIGHT);
+    Game game = new Game(playerHandValueSameAsDealer);
+
+    game.initialDeal();
+    game.playerStands();
+    game.dealerTurn();
+
+    assertThat(game.isPlayerDone())
+        .isTrue();
+    assertThat(game.determineOutcome())
+        .isEqualTo(GameOutcome.PLAYER_LOSES.display());
+  }
+
 }
