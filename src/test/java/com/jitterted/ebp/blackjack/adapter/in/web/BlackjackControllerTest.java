@@ -49,4 +49,16 @@ class BlackjackControllerTest {
         .containsExactly("2♥", "3♣");
   }
 
+  @Test
+  public void hitCommandDealsAdditionalCardToPlayer() throws Exception {
+    Game game = new Game();
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    blackjackController.hitCommand();
+
+    assertThat(game.playerHand().cards())
+        .hasSize(3);
+  }
+
 }
